@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfume Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.65);
+      z-index: -1;
+    }
+    .glass {
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(212,175,55,0.3);
+      box-shadow: 0 0 20px rgba(212,175,55,0.15);
+    }
+  
+    /* Luxury animations */
+    @keyframes goldShimmer {
+      0% { text-shadow: 0 0 5px rgba(212,175,55,0.4); }
+      50% { text-shadow: 0 0 20px rgba(212,175,55,0.9), 0 0 30px rgba(255,215,0,0.4); }
+      100% { text-shadow: 0 0 5px rgba(212,175,55,0.4); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      animation: goldShimmer 3s infinite ease-in-out, fadeInDown 1.2s ease-out;
+    }
+  </style>
+  <style>
+    .bg-slider {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .bg-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 1.5s ease-in-out, transform 7s ease-in-out;
+    }
+    .bg-slide.active {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    .bg-slide.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="text-yellow-400 font-sans bg-black pt-20">
+
+  <!-- BACKGROUND SLIDER -->
+  <div class="bg-slider">
+    <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539');"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1585386959984-a4155224a1ad');"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1615634260167-c8cdede054de');"></div>
+  </div>
+  <div class="overlay"></div>
+    <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1523293182086-7651a899d37f');"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center p-6 fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md">
+    <h1 class="text-3xl font-bold tracking-wider logo" style="font-family: 'New Rocker', cursive; color:#D4AF37;">Scentsburg</h1>
+    <div class="space-x-6 hidden md:block">
+      <a href="#" class="hover:text-yellow-300">Home</a>
+      <a href="#collection" class="hover:text-yellow-300">Collection</a>
+      <a href="#about" class="hover:text-yellow-300">About</a>
+      <a href="#contact" class="hover:text-yellow-300">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="text-center mt-20 px-6">
+    <h2 class="text-5xl font-bold mb-4" style="background: linear-gradient(90deg,#D4AF37,#fff,#D4AF37); -webkit-background-clip: text; color: transparent;">Crafting Luxury Fragrances</h2>
+    <p class="text-yellow-200 mb-6">Explore unique scent compositions inspired by elegance and individuality.</p>
+    <button onclick="scrollToSection()" class="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition">Explore Collection</button>
+  </section>
+
+  <!-- COLLECTION -->
+  <section id="collection" class="mt-24 px-6">
+    <h3 class="text-3xl font-bold text-center mb-10">Featured Scents</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+        <h4 class="text-xl font-semibold" style="color:#D4AF37;">Oud Noir</h4>
+        <p class="text-yellow-300">Dark, woody, and mysterious.</p>
+      </div>
+      <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+        <h4 class="text-xl font-semibold" style="color:#D4AF37;">Citrus Bloom</h4>
+        <p class="text-yellow-300">Fresh, vibrant, and energetic.</p>
+      </div>
+      <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+        <h4 class="text-xl font-semibold" style="color:#D4AF37;">Velvet Rose</h4>
+        <p class="text-yellow-300">Romantic and soft floral elegance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="mt-24 px-6 text-center">
+    <h3 class="text-3xl font-bold mb-6">About Me</h3>
+    <p class="text-yellow-200 max-w-2xl mx-auto">I create handcrafted perfume compositions blending modern and traditional notes. This portfolio showcases my passion for fragrance design.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="mt-24 px-6 text-center">
+    <h3 class="text-3xl font-bold mb-6">Get in Touch</h3>
+    <form class="max-w-md mx-auto space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-black border border-yellow-500 text-yellow-200" />
+      <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-black border border-yellow-500 text-yellow-200" />
+      <textarea placeholder="Your Message" class="w-full p-3 rounded bg-black border border-yellow-500 text-yellow-200"></textarea>
+      <button type="submit" class="bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition">Send</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mt-20 text-center p-6" style="color:#C5A46D;">
+    © 2026 <span style="color: #D4AF37;">Scentsburg</span>. All rights reserved.
+  </footer>
+
+  <script>
+    function scrollToSection() {
+      document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+  <script>
+    // Background slider logic
+    const slides = document.querySelectorAll('.bg-slide');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 7000);
+  </script>
+</body>
+</html>
